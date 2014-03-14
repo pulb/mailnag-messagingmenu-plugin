@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=Mailnag
+Exec=mailnag-config
+Icon=%PREFIX%/share/mailnag/mailnag.svg
+Categories=Network;
+Type=Application
+Actions=OpenMailReader;CheckForMail
+OnlyShowIn=Messaging Menu;
+
+[Desktop Action OpenMailReader]
+Name=Open Mail Reader
+Name[de_DE]=Mailclient öffnen
+Exec=python2 %PREFIX%/bin/mailnag-unity-action-launcher --openmailreader
+OnlyShowIn=Messaging Menu;
+
+[Desktop Action CheckForMail]
+Name=Check For Mail
+Name[de_DE]=Auf neue Mails prüfen
+Exec=python2 %PREFIX%/bin/mailnag-unity-action-launcher --check
+OnlyShowIn=Messaging Menu;

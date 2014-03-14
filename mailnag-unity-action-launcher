@@ -1,0 +1,70 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+#
+# mailnag-unity-action-launcher
+#
+# Copyright 2014 Patrick Ulbrich <zulu99@gmx.net>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
+
+import sys
+import dbus
+from gi.repository import Gio
+from Mailnag.common.subproc import start_subprocess
+
+DBUS_BUS_NAME = 'mailnag.MailnagService'
+DBUS_OBJ_PATH = '/mailnag/MailnagService'
+
+
+def get_default_mail_reader():
+	mail_reader = None
+	app_info = Gio.AppInfo.get_default_for_type ("x-scheme-handler/mailto", False)
+
+	if app_info != None:
+		executable = Gio.AppInfo.get_executable(app_info)
+
+		if (executable != None) and (len(executable) > 0):
+			mail_reader = executable
+
+	return mail_reader
+
+
+def check_for_mails():
+	bus = dbus.SessionBus()
+	
+	if bus.name_has_owner(DBUS_BUS_NAME):
+		proxy = bus.get_object(DBUS_BUS_NAME, DBUS_OBJ_PATH)
+		check_for_mails_remote = proxy.get_dbus_method('CheckForMails', DBUS_BUS_NAME)
+		
+		check_for_mails_remote()
+
+
+def main():
+	if len(sys.argv) == 1:
+		return
+	
+	arg = sys.argv[1]
+	
+	if arg == '--openmailreader':
+		mail_client = get_default_mail_reader()
+		if mail_client != None:
+			start_subprocess(mail_client)
+	elif arg == '--check':
+		check_for_mails()
+
+
+if __name__ == "__main__": main()

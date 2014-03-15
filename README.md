@@ -12,4 +12,4 @@ To install the plugin type `sudo ./setup.py install` in a terminal.
 That's it. Now fire up `mailnag-config` and enable the plugin.
 
 #### Screenshots
-TODO
+![Screenshot](https://raw.github.com/pulb/mailnag-unity-plugin/docs/docs/screenshots/screenshot.png)

@@ -54,7 +54,7 @@ class UserscriptPlugin(Plugin):
 		self._max_messages = int(self.get_config()['max_visible_messages'])
 		
 		def mails_added_hook(new_mails, all_mails):
-			self._rebuild(new_mails)
+			self._rebuild(all_mails)
 		
 		def mails_removed_hook(remaining_mails):
 			# TODO : not only support removal of *all* mails

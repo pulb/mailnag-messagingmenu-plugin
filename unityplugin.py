@@ -54,12 +54,10 @@ class UserscriptPlugin(Plugin):
 		self._max_messages = int(self.get_config()['max_visible_messages'])
 		
 		def mails_added_hook(new_mails, all_mails):
-			self._rebuild(all_mails)
+			self._rebuild_with_new(new_mails)
 		
 		def mails_removed_hook(remaining_mails):
-			# TODO : not only support removal of *all* mails
-			if len(remaining_mails) == 0:
-				self._rebuild([])
+			self._rebuild_with_remaining(remaining_mails)
 		
 		self._mails_added_hook = mails_added_hook
 		self._mails_removed_hook = mails_removed_hook
@@ -138,12 +136,44 @@ class UserscriptPlugin(Plugin):
 		config['max_visible_messages'] = str(int(max_msgs))
 
 
-	def _rebuild(self, mails):
+	def _rebuild_with_new(self, new_mails):
+		menu_reset = (len(self._mails) > 0) and (not self._app.has_source(self._mails[0].id))
+		
+		# Clear messaging menu (remove current mails)
 		for m in self._mails:
 			self._app.remove_source(m.id)
 		
-		self._mails = mails
+		if menu_reset:
+			# Reset detected (the Clear button has been pressed by the user).
+			# Discard current mails and start a new mail list.
+			self._mails = new_mails
+		else:
+			# Add new mails to the top of the mail list.
+			self._mails = new_mails + self._mails
 		
+		self._add_mails_to_menu()
+		
+				
+	def _rebuild_with_remaining(self, remaining_mails):
+		menu_reset = (len(self._mails) > 0) and (not self._app.has_source(self._mails[0].id))
+		
+		# Clear messaging menu (remove current mails)
+		for m in self._mails:
+			self._app.remove_source(m.id)
+		
+		if menu_reset:
+			# Reset detected (the Clear button has been pressed by the user).
+			# Discard current mails.
+			self._mails = []
+		else:
+			# Remove mails that are not in the remainder list.
+			self._mails = [m for m in self._mails if m in remaining_mails]
+		
+		self._add_mails_to_menu()
+	
+	
+	def _add_mails_to_menu(self):
+		# Add mail list to the messaging menu.
 		if len(self._mails) > 0:
 			ubound = len(self._mails) if len(self._mails) <= self._max_messages \
 				else self._max_messages
@@ -161,13 +191,11 @@ class UserscriptPlugin(Plugin):
 					self._app.append_source_with_string(m.id, icon, label, '?')
 				
 				self._app.draw_attention(m.id)
-		
-				
+	
+	
 	def _source_activated(self, app, source_id):
 		mails = filter(lambda m: m.id != source_id, self._mails)
-#		self._rebuild(mails)
-#		app.remove_source(source_id)
-
+		
 		controller = self.get_mailnag_controller()
 		try:
 			controller.mark_mail_as_read(source_id)

@@ -30,7 +30,6 @@ for arg in sys.argv:
 
 BUILD_PATCH_DIR = os.path.join(BUILD_DIR, 'patched')
 BUILD_PLUGIN_DIR = os.path.join(BUILD_DIR, 'plugins')
-INSTALL_LIB_DIR = os.path.join(get_python_lib(prefix=PREFIX).replace('dist', 'site'), 'Mailnag')
 
 
 class BuildData(build):

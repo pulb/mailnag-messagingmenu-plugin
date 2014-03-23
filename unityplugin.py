@@ -194,11 +194,13 @@ class UserscriptPlugin(Plugin):
 	
 	
 	def _source_activated(self, app, source_id):
-		mails = filter(lambda m: m.id != source_id, self._mails)
+		self._mails = filter(lambda m: m.id != source_id, self._mails)
 		
 		controller = self.get_mailnag_controller()
 		try:
 			controller.mark_mail_as_read(source_id)
 		except InvalidOperationException:
 			pass
+		
+		self._rebuild_with_new([])
 

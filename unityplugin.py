@@ -33,7 +33,7 @@ MAX_VISIBLE_MAILS_LIMIT = 20.0
 MAIL_ICON = 'mail-unread-symbolic'
 OPEN_MAIL_READER_ICON = 'mail-read'
 
-plugin_defaults = { 'max_visible_messages' : '10' }
+plugin_defaults = { 'max_visible_mails' : '10' }
 
 
 class UserscriptPlugin(Plugin):
@@ -42,7 +42,7 @@ class UserscriptPlugin(Plugin):
 		self._mails_removed_hook = None
 		self._app = None
 		self._mails = None
-		self._max_messages = 0
+		self._max_mails = 0
 	
 	
 	def enable(self):
@@ -53,7 +53,7 @@ class UserscriptPlugin(Plugin):
 		self._app.register()
 		
 		self._mails = []
-		self._max_messages = int(self.get_config()['max_visible_messages'])
+		self._max_mails = int(self.get_config()['max_visible_mails'])
 		
 		def mails_added_hook(new_mails, all_mails):
 			self._rebuild_with_new(new_mails)
@@ -126,16 +126,16 @@ class UserscriptPlugin(Plugin):
 	
 	def load_ui_from_config(self, config_ui):
 		config = self.get_config()
-		max_msgs = float(config['max_visible_messages'])
+		max_mails = float(config['max_visible_mails'])
 		spinner = config_ui.get_children()[1]
-		spinner.set_value(max_msgs)
+		spinner.set_value(max_mails)
 	
 	
 	def save_ui_to_config(self, config_ui):
 		config = self.get_config()
 		spinner = config_ui.get_children()[1]
-		max_msgs = spinner.get_value()
-		config['max_visible_messages'] = str(int(max_msgs))
+		max_mails = spinner.get_value()
+		config['max_visible_mails'] = str(int(max_mails))
 
 
 	def _rebuild_with_new(self, new_mails):
@@ -177,8 +177,8 @@ class UserscriptPlugin(Plugin):
 	def _add_mails_to_menu(self):
 		# Add mail list to the messaging menu.
 		if len(self._mails) > 0:
-			ubound = len(self._mails) if len(self._mails) <= self._max_messages \
-				else self._max_messages
+			ubound = len(self._mails) if len(self._mails) <= self._max_mails \
+				else self._max_mails
 
 			for i in range(ubound):
 				m = self._mails[i]

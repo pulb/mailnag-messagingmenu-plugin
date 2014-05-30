@@ -1,8 +1,7 @@
 # mailnag-unity-plugin
-Plugin that integrates Mailnag in Ubuntu's messaging menu.
+Plugin that integrates [Mailnag](https://github.com/pulb/mailnag) in Ubuntu's messaging menu.
 
 #### Installation
-__Note:__ This plugin requires the Mailnag daemon from the [mailnag-next](https://github.com/pulb/mailnag/tree/mailnag-next) branch.  
 
 ###### Requirements
 * mailnag >= 1.0.0

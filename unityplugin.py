@@ -113,8 +113,8 @@ class UserscriptPlugin(Plugin):
 		box.set_spacing(12)
 		box.set_orientation(Gtk.Orientation.HORIZONTAL)
 		
-		label = Gtk.Label('Max visible messages:')
-		spinner = Gtk.SpinButton.new_with_range(1.0, 30.0, 1.0)
+		label = Gtk.Label('Maximum number of visible mails:')
+		spinner = Gtk.SpinButton.new_with_range(1.0, 20.0, 1.0)
 
 		box.pack_start(label, False, False, 0)
 		box.pack_start(spinner, False, False, 0)

@@ -28,6 +28,8 @@ from common.i18n import _
 
 PLUGIN_VERSION = "1.0"
 
+MAX_VISIBLE_MAILS_LIMIT = 20.0
+
 MAIL_ICON = 'mail-unread-symbolic'
 OPEN_MAIL_READER_ICON = 'mail-read'
 
@@ -114,7 +116,7 @@ class UserscriptPlugin(Plugin):
 		box.set_orientation(Gtk.Orientation.HORIZONTAL)
 		
 		label = Gtk.Label('Maximum number of visible mails:')
-		spinner = Gtk.SpinButton.new_with_range(1.0, 20.0, 1.0)
+		spinner = Gtk.SpinButton.new_with_range(1.0, MAX_VISIBLE_MAILS_LIMIT, 1.0)
 
 		box.pack_start(label, False, False, 0)
 		box.pack_start(spinner, False, False, 0)

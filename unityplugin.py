@@ -56,7 +56,7 @@ class UserscriptPlugin(Plugin):
 		self._max_mails = int(self.get_config()['max_visible_mails'])
 		
 		def mails_added_hook(new_mails, all_mails):
-			self._rebuild_with_new(new_mails)
+			self._rebuild_with_new(new_mails, all_mails)
 		
 		def mails_removed_hook(remaining_mails):
 			self._rebuild_with_remaining(remaining_mails)
@@ -138,7 +138,7 @@ class UserscriptPlugin(Plugin):
 		config['max_visible_mails'] = str(int(max_mails))
 
 
-	def _rebuild_with_new(self, new_mails):
+	def _rebuild_with_new(self, new_mails, all_mails):
 		menu_reset = (len(self._mails) > 0) and (not self._app.has_source(self._mails[0].id))
 		
 		# Clear messaging menu (remove current mails)
@@ -150,8 +150,11 @@ class UserscriptPlugin(Plugin):
 			# Discard current mails and start a new mail list.
 			self._mails = new_mails
 		else:
+			# Remove mails that are gone (e. g. removed in mail reader)
+			mails = [m for m in self._mails if m in all_mails]
+			
 			# Add new mails to the top of the mail list.
-			self._mails = new_mails + self._mails
+			self._mails = new_mails + mails
 		
 		self._add_mails_to_menu()
 		
@@ -204,5 +207,6 @@ class UserscriptPlugin(Plugin):
 		except InvalidOperationException:
 			pass
 		
-		self._rebuild_with_new([])
+		# Rebuild to push up hidden mails
+		self._rebuild_with_new([], self._mails)
 

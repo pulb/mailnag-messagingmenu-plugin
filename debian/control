@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Patrick Ulbrich <zulu99@gmx.net>
 Build-Depends: debhelper (>= 8.0.0),
                gir1.2-messagingmenu-1.0,
-               mailnag > 0.9
+               mailnag (>= 0.9)
 X-Python-Version: >= 2.7
 Standards-Version: 3.9.4
 Homepage: https://github.com/pulb/mailnag-unity-plugin
@@ -14,7 +14,7 @@ Vcs-Browser: https://github.com/pulb/mailnag-unity-plugin.git
 Package: mailnag-unity-plugin
 Architecture: all
 Depends: gir1.2-messagingmenu-1.0,
-         mailnag > 0.9,
+         mailnag (>= 0.9),
          ${misc:Depends},
          ${python:Depends}
 Description: Plugin that integrates Mailnag in Ubuntu's messaging menu

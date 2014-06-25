@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Mailnag
 Exec=mailnag-config
-Icon=%PREFIX%/share/mailnag/mailnag.svg
+Icon=mailnag
 Categories=Network;
 Type=Application
 Actions=OpenMailReader;CheckForMail

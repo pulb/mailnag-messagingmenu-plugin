@@ -16,7 +16,7 @@ Depends:
  mailnag (>= 1.0),
  ${misc:Depends},
  ${python:Depends}
-Description: Plugin that integrates Mailnag in Ubuntu's messaging menu
+Description: plugin that integrates Mailnag in Ubuntu's messaging menu
  Mailnag is a daemon program that checks POP3 and IMAP servers for new mail.
  On mail arrival it performs various actions provided by plugins. Mailnag
  comes with a set of desktop-independent default plugins for visual/sound

@@ -2,24 +2,23 @@ Source: mailnag-unity-plugin
 Section: network
 Priority: optional
 Maintainer: Patrick Ulbrich <zulu99@gmx.net>
-Build-Depends: debhelper (>= 8.0.0),
-               gir1.2-messagingmenu-1.0,
-               mailnag (>= 0.9)
+Build-Depends: debhelper (>= 9), python (>= 2.7)
 X-Python-Version: >= 2.7
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Homepage: https://github.com/pulb/mailnag-unity-plugin
 Vcs-Git: git://github.com/pulb/mailnag-unity-plugin.git
 Vcs-Browser: https://github.com/pulb/mailnag-unity-plugin.git
 
 Package: mailnag-unity-plugin
 Architecture: all
-Depends: gir1.2-messagingmenu-1.0,
-         mailnag (>= 0.9),
-         ${misc:Depends},
-         ${python:Depends}
+Depends:
+ gir1.2-messagingmenu-1.0,
+ mailnag (>= 1.0),
+ ${misc:Depends},
+ ${python:Depends}
 Description: Plugin that integrates Mailnag in Ubuntu's messaging menu
  Mailnag is a daemon program that checks POP3 and IMAP servers for new mail.
- On mail arrival it performs various actions provided by plugins.
- Mailnag comes with a set of desktop-independent default plugins for
- visual/sound notifications, script execution etc. and can be extended
- with additional plugins easily. 
+ On mail arrival it performs various actions provided by plugins. Mailnag
+ comes with a set of desktop-independent default plugins for visual/sound
+ notifications, script execution etc. and can be extended with additional
+ plugins easily. 

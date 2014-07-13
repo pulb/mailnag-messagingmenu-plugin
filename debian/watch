@@ -1,2 +1,3 @@
 version=3
-https://github.com/pulb/mailnag-unity-plugin/releases/mailnag-unity-plugin-(.+)\.tar\.gz
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/mailnag-unity-plugin-$1\.tar\.gz/ \
+ https://github.com/pulb/mailnag-unity-plugin/releases .*/v?(\d\S*)\.tar\.gz

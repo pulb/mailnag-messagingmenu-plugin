@@ -13,7 +13,7 @@ Issue the following commands in a terminal to enable the PPA and install the plu
 
 ### Generic Tarballs
 Sourcecode releases are available [here](https://github.com/pulb/mailnag-unity-plugin/releases).  
-To install the plugin type `sudo ./setup.py install --prefix=/usr --install-layout=deb` in a terminal.  
+To install the plugin type `sudo ./setup.py install --prefix=/usr --install-layout=deb` in a terminal.
 That's it. Now fire up `mailnag-config` and enable the plugin.  
 
 ###### Requirements

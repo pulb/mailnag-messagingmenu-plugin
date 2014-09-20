@@ -20,5 +20,5 @@ That's it. Now fire up `mailnag-config` and enable the plugin.
 * mailnag >= 1.0.0
 * gir1.2-messagingmenu-1.0
 
-#### Screenshots
+## Screenshots
 ![Screenshot](https://raw.github.com/pulb/mailnag-unity-plugin/docs/docs/screenshot.png)

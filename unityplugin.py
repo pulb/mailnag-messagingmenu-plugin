@@ -36,7 +36,7 @@ OPEN_MAIL_READER_ICON = 'mail-read'
 plugin_defaults = { 'max_visible_mails' : '10' }
 
 
-class UserscriptPlugin(Plugin):
+class UnityPlugin(Plugin):
 	def __init__(self):
 		self._mails_added_hook = None
 		self._mails_removed_hook = None

@@ -13,7 +13,7 @@ Package: mailnag-unity-plugin
 Architecture: all
 Depends:
  gir1.2-messagingmenu-1.0,
- mailnag (>= 1.0),
+ mailnag (>= 1.1),
  ${misc:Depends},
  ${python:Depends}
 Description: plugin that integrates Mailnag in Ubuntu's messaging menu

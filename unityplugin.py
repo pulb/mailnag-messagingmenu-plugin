@@ -22,9 +22,9 @@
 #
 
 from gi.repository import Gtk, Gio, MessagingMenu
-from common.plugins import Plugin, HookTypes
-from common.exceptions import InvalidOperationException
-from common.i18n import _
+from Mailnag.common.plugins import Plugin, HookTypes
+from Mailnag.common.exceptions import InvalidOperationException
+from Mailnag.common.i18n import _
 
 PLUGIN_VERSION = "1.0"
 

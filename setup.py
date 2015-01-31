@@ -15,7 +15,7 @@ import os
 import shutil
 
 PACKAGE_NAME = 'mailnag-unity-plugin'
-PLUGIN_VERSION = '1.0'
+PLUGIN_VERSION = '1.1'
 
 # TODO : This hack won't work with --user and --home options
 PREFIX = '/usr'
@@ -72,7 +72,7 @@ setup(name=PACKAGE_NAME,
 	author='Patrick Ulbrich',
 	author_email='zulu99@gmx.net',
 	url='https://github.com/pulb/mailnag-unity-plugin',
-	license='GNU GPL3',
+	license='GNU GPL2',
 	package_dir = {'Mailnag.plugins' : BUILD_PLUGIN_DIR},
 	packages=['Mailnag.plugins'],
 	scripts=['mailnag-unity-action-launcher'],

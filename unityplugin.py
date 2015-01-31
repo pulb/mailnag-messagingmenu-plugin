@@ -3,7 +3,7 @@
 #
 # unityplugin.py
 #
-# Copyright 2014 Patrick Ulbrich <zulu99@gmx.net>
+# Copyright 2014, 2015 Patrick Ulbrich <zulu99@gmx.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ from Mailnag.common.plugins import Plugin, HookTypes
 from Mailnag.common.exceptions import InvalidOperationException
 from Mailnag.common.i18n import _
 
-PLUGIN_VERSION = "1.0"
+PLUGIN_VERSION = "1.1"
 
 MAX_VISIBLE_MAILS_LIMIT = 20.0
 

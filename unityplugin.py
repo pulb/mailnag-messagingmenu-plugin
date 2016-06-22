@@ -95,6 +95,7 @@ class UnityPlugin(Plugin):
 		
 		if self._app != None:
 			self._app.unregister()
+			self._app = None
 		
 		self._mails = None
 

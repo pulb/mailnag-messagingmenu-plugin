@@ -10,11 +10,13 @@ OnlyShowIn=Messaging Menu;
 [Desktop Action OpenMailReader]
 Name=Open Mail Reader
 Name[de_DE]=Mailclient öffnen
+Name[it_IT]=Apri posta elettronica
 Exec=python2 %PREFIX%/bin/mailnag-unity-action-launcher --openmailreader
 OnlyShowIn=Messaging Menu;
 
 [Desktop Action CheckForMail]
 Name=Check For Mail
 Name[de_DE]=Auf neue Mails prüfen
+Name[it_IT]=Aggiorna nuovi messaggi
 Exec=python2 %PREFIX%/bin/mailnag-unity-action-launcher --check
 OnlyShowIn=Messaging Menu;

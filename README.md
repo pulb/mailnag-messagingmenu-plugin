@@ -1,5 +1,10 @@
 # mailnag-unity-plugin
-Plugin that integrates [Mailnag](https://github.com/pulb/mailnag) in Ubuntu's messaging menu.
+Plugin that integrates [Mailnag](https://github.com/pulb/mailnag) in the MessagingMenu indicator.
+The MessagingMenu indicator is currently available for the following desktops:
+ - Ubuntu Unity
+ - Elementary Pantheon
+ - XFCE
+ - GNOME 3
 
 ## Installation
 
@@ -9,7 +14,7 @@ Issue the following commands in a terminal to enable the PPA and install the plu
 
     sudo add-apt-repository ppa:pulb/mailnag
     sudo apt-get update
-    sudo apt-get install mailnag-unity-plugin
+    sudo apt-get install mailnag-messagingmenu-plugin
 
 ### Generic Tarballs
 Sourcecode releases are available [here](https://github.com/pulb/mailnag-unity-plugin/releases).  
@@ -21,4 +26,4 @@ That's it. Now fire up `mailnag-config` and enable the plugin.
 * gir1.2-messagingmenu-1.0
 
 ## Screenshots
-![Screenshot](https://raw.github.com/pulb/mailnag-unity-plugin/docs/docs/screenshot.png)
+![Screenshot](https://raw.github.com/pulb/mailnag-messagingmenu-plugin/docs/docs/screenshot.png)

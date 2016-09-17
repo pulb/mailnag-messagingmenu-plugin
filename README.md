@@ -1,5 +1,5 @@
 # mailnag-messagingmenu-plugin
-Plugin that integrates [Mailnag](https://github.com/pulb/mailnag) in the MessagingMenu indicator.
+Plugin that integrates [Mailnag](https://github.com/pulb/mailnag) in the MessagingMenu indicator.  
 The MessagingMenu indicator is currently available for the following desktop environments:
  - Ubuntu Unity
  - Elementary Pantheon

@@ -14,7 +14,7 @@ import sys
 import os
 import shutil
 
-PACKAGE_NAME = 'mailnag-unity-plugin'
+PACKAGE_NAME = 'mailnag-messagingmenu-plugin'
 PLUGIN_VERSION = '1.1'
 
 # TODO : This hack won't work with --user and --home options
@@ -39,11 +39,11 @@ class BuildData(build):
 		
 		os.makedirs(BUILD_PATCH_DIR)
 		os.makedirs(BUILD_PLUGIN_DIR)
-		shutil.copy2('unityplugin.py', BUILD_PLUGIN_DIR)
+		shutil.copy2('messagingmenuplugin.py', BUILD_PLUGIN_DIR)
 		
 		# patch paths
-		self._patch_file('./mailnag-unity.desktop.in', os.path.join(BUILD_PATCH_DIR, 
-			'mailnag-unity.desktop'), '%PREFIX%', PREFIX)
+		self._patch_file('./mailnag-messagingmenu.desktop.in', os.path.join(BUILD_PATCH_DIR, 
+			'mailnag-messagingmenu.desktop'), '%PREFIX%', PREFIX)
 		build.run (self)
 
 
@@ -68,15 +68,15 @@ class Uninstall(Command):
 
 setup(name=PACKAGE_NAME,
 	version=PLUGIN_VERSION,
-	description='Ubuntu Unity plugin for Mailnag',
+	description='MessagingMenu plugin for Mailnag',
 	author='Patrick Ulbrich',
 	author_email='zulu99@gmx.net',
-	url='https://github.com/pulb/mailnag-unity-plugin',
+	url='https://github.com/pulb/mailnag-messagingmenu-plugin',
 	license='GNU GPL2',
 	package_dir = {'Mailnag.plugins' : BUILD_PLUGIN_DIR},
 	packages=['Mailnag.plugins'],
-	scripts=['mailnag-unity-action-launcher'],
-	data_files=[('share/applications', [os.path.join(BUILD_PATCH_DIR, 'mailnag-unity.desktop')])],
+	scripts=['mailnag-messagingmenu-action-launcher'],
+	data_files=[('share/applications', [os.path.join(BUILD_PATCH_DIR, 'mailnag-messagingmenu.desktop')])],
 	cmdclass={'build': BuildData, 
                 'install_data': InstallData,
                 'uninstall': Uninstall}

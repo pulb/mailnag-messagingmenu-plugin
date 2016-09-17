@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 #
-# unityplugin.py
+# messagingmenuplugin.py
 #
 # Copyright 2014 - 2016 Patrick Ulbrich <zulu99@gmx.net>
 #
@@ -31,7 +31,7 @@ from Mailnag.common.plugins import Plugin, HookTypes
 from Mailnag.common.exceptions import InvalidOperationException
 from Mailnag.common.i18n import _
 
-PLUGIN_VERSION = "1.1"
+PLUGIN_VERSION = "1.2"
 
 MAX_VISIBLE_MAILS_LIMIT = 20.0
 
@@ -41,7 +41,7 @@ OPEN_MAIL_READER_ICON = 'mail-read'
 plugin_defaults = { 'max_visible_mails' : '10' }
 
 
-class UnityPlugin(Plugin):
+class MessagingMenuPlugin(Plugin):
 	def __init__(self):
 		self._mails_added_hook = None
 		self._mails_removed_hook = None
@@ -53,7 +53,7 @@ class UnityPlugin(Plugin):
 	def enable(self):
 		icon = Gio.ThemedIcon.new(OPEN_MAIL_READER_ICON)
 		
-		self._app = MessagingMenu.App.new('mailnag-unity.desktop')
+		self._app = MessagingMenu.App.new('mailnag-messagingmenu.desktop')
 		self._app.connect('activate-source', self._source_activated)
 		self._app.register()
 		
@@ -101,8 +101,8 @@ class UnityPlugin(Plugin):
 
 	
 	def get_manifest(self):
-		return (_("Ubuntu Unity"),
-				_("Shows new mails in Ubuntu's Messaging menu."),
+		return (_("MessagingMenu"),
+				_("Shows new mails in the MessagingMenu indicator."),
 				PLUGIN_VERSION,
 				"Patrick Ulbrich <zulu99@gmx.net>",
 				False)

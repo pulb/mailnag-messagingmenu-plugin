@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: mailnag-unity-plugin
+Upstream-Name: mailnag-messagingmenu-plugin
 Upstream-Contact: Patrick Ulbrich <zulu99@gmx.net>
-Source: https://github.com/pulb/mailnag-unity-plugin
+Source: https://github.com/pulb/mailnag-messagingmenu-plugin
 
 Files: *
 Copyright: 2014 Patrick Ulbrich <zulu99@gmx.net>

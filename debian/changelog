@@ -1,3 +1,9 @@
+mailnag-messagingmenu-plugin (1.1-0) unstable; urgency=low
+
+  * New upstream release
+
+ -- Patrick Ulbrich <zulu99@gmx.net>  Sun, 08 Feb 2015 13:40:55 +0100
+ 
 mailnag-messagingmenu-plugin (1.0-0) unstable; urgency=low
 
   * Initial release

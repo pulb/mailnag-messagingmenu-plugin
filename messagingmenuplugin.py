@@ -1,8 +1,3 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-#
-# messagingmenuplugin.py
-#
 # Copyright 2014 - 2016 Patrick Ulbrich <zulu99@gmx.net>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -104,8 +99,7 @@ class MessagingMenuPlugin(Plugin):
 		return (_("MessagingMenu"),
 				_("Shows new mails in the MessagingMenu indicator."),
 				PLUGIN_VERSION,
-				"Patrick Ulbrich <zulu99@gmx.net>",
-				False)
+				"Patrick Ulbrich <zulu99@gmx.net>")
 
 
 	def get_default_config(self):
@@ -196,7 +190,7 @@ class MessagingMenuPlugin(Plugin):
 				icon = Gio.ThemedIcon.new(MAIL_ICON)
 				label = "%s  -  %s" % (sender, m.subject)
 				if m.datetime > 0:
-					time = m.datetime * 1000L * 1000L
+					time = m.datetime * 1000 * 1000
 					self._app.append_source_with_time(m.id, icon, label, time)
 				else:
 					self._app.append_source_with_string(m.id, icon, label, '?')
@@ -205,7 +199,7 @@ class MessagingMenuPlugin(Plugin):
 	
 	
 	def _source_activated(self, app, source_id):
-		self._mails = filter(lambda m: m.id != source_id, self._mails)
+		self._mails = [m for m in self._mails if m.id != source_id]
 		
 		controller = self.get_mailnag_controller()
 		try:
